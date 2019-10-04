@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_HelloWorld</title>
+		<!-- <link rel="stylesheet" type="text/css" href="css/test.css"> -->
+		<style type="text/css">
+			.aClass{
+				color: red;
+			}
+			.bClass{
+				color: blue;
+			}
+			.cClass{
+				font-size: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">
+			<h2>显示格式化的日期时间</h2>
+			<p>{{date}}</p>
+			<p>完整版{{date | dateString}}</p>
+			<p>完整版{{date | dateString('YYY-MM-DD')}}</p>
+			<p>完整版{{date | dateString('HH:mm:ss')}}</p>
+		</div>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="https://cdn.bootcss.com/moment.js/2.22.1/moment.js"></script>
+		<script type="text/javascript">
+			Vue.filter('dateString',function(value,format='YYYY-MM-DD HH:mm:ss'){
+				return moment(value).format(format||'YYYY-MM-DD HH:mm:ss');
+			})
+			new Vue({
+				el:'#demo',
+				data:{
+					date:new Date()
+				}
+				// ,
+				// methods:{
+					
+				// },
+				// computed:{
+					
+				// }
+			})
+
+			// Vue.filter('dateString', function(value，format='YYYY-MM-DD HH:mm:ss'){
+			// 	return moment(value).format(format);
+			// });
+			// Vue.filter('dateString',function(value,format='YYYY-MM-DD HH:mm:ss'){
+			// 	return moment(value).format(format||'YYYY-MM-DD HH:mm:ss');
+			// })
+		</script>
+	</body>
+</html>

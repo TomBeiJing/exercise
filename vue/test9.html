@@ -1,0 +1,68 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_HelloWorld</title>
+		<!-- <link rel="stylesheet" type="text/css" href="css/test.css"> -->
+		<style type="text/css">
+			.aClass{
+				color: red;
+			}
+			.bClass{
+				color: blue;
+			}
+			.cClass{
+				font-size: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo1">
+			<p v-upper-text="msg1"></p>
+			<p v-lower-text="msg1"></p>
+		</div>
+
+		<div id="demo2">
+			<p v-upper-text="msg2"></p>
+			<p v-lower-text="msg2"></p>
+		</div>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript">
+			 Vue.directive('upper-text',function(el,binding){
+			 	el.textContent=binding.value.toUpperCase();
+			 })
+			new Vue({
+				el:'#demo1',
+				data:{
+					msg1:"AAAAA"
+				},
+				directives:{
+					'lower-text':function(el,binding){
+						el.textContent=binding.value.toLowerCase();
+					}
+				}
+			});
+
+			new Vue({
+				el:'#demo2',
+				data:{
+					msg2:"BBBBB"
+				}
+				// ,
+				// methods:{
+					
+				// },
+				// computed:{
+					
+				// }
+			})
+
+			// Vue.filter('dateString', function(value，format='YYYY-MM-DD HH:mm:ss'){
+			// 	return moment(value).format(format);
+			// });
+			// Vue.filter('dateString',function(value,format='YYYY-MM-DD HH:mm:ss'){
+			// 	return moment(value).format(format||'YYYY-MM-DD HH:mm:ss');
+			// })
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_HelloWorld</title>
+		<!-- <link rel="stylesheet" type="text/css" href="css/test.css"> -->
+	</head>
+	<body>
+		<div id="app">
+			
+			姓：<input type="text" placeholder="First Name" v-model="firstName"><br>
+			<p>{{firstName}}</p>
+			名：<input type="text" placeholder="Last Name" v-model="lastName"><br>
+			姓名1（单向）：<input type="text" placeholder="Full Name1" v-model="fullName1">{{firstName}}<br>
+			姓名2（单向）：<input type="text" placeholder="Full Name2" v-model="fullName2"><br>
+			姓名3（双向）：<input type="text" placeholder="Full Name3" v-model="fullname3"><br>
+
+		</div>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="js/test2.js"></script>
+	</body>
+</html>

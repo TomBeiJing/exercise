@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_HelloWorld</title>
+		<!-- <link rel="stylesheet" type="text/css" href="css/test.css"> -->
+		<style type="text/css">
+			.aClass{
+				color: red;
+			}
+			.bClass{
+				color: blue;
+			}
+			.cClass{
+				font-size: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">
+			<p v-if="ok">成功</p>
+			<p v-else="false">失败</p >
+			<ul>
+				<li v-for="(p,index) in persons" :key="index">
+					{{index}}---{{p.name}}---{{p.age}}---<button @click="deleteP(index)">删除</button>---<button @click="updateP(index,{name:'Cat',age:20})">更新</button>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript">
+			const vim=new Vue({
+				el:'#demo',
+				data:{
+					persons:[
+					  {name:'Tom',age:18},
+					  {name:'Jack',age:16},
+					  {name:'Bob',age:19},
+					  {name:'Rose',age:17}]
+				},
+				methods:{
+					deleteP(index){
+						this.persons.splice(index,1); 
+					},
+					updateP(index,newP){
+						this.persons.splice(index,1,newP);
+					}
+				} 
+			})
+		</script>
+	</body>
+</html>

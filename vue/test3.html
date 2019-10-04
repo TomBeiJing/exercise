@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_HelloWorld</title>
+		<!-- <link rel="stylesheet" type="text/css" href="css/test.css"> -->
+		<style type="text/css">
+			.aClass{
+				color: red;
+			}
+			.bClass{
+				color: blue;
+			}
+			.cClass{
+				font-size: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">
+			<h2>AAAA</h2>
+			<p  :class="a" class="cClass">1234</p>
+			<h2>BBBB</h2>
+			<button @click="update">update</button>
+		</div>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript">
+		const vim=new Vue({
+			el:'#demo',
+			data:{
+				a:'aClass'
+			},
+			methods:{
+				update(){
+					this.a='bClass';
+				}
+			}
+		})
+		</script>
+	</body>
+</html>

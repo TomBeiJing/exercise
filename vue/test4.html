@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_HelloWorld</title>
+		<!-- <link rel="stylesheet" type="text/css" href="css/test.css"> -->
+		<style type="text/css">
+			.aClass{
+				color: red;
+			}
+			.bClass{
+				color: blue;
+			}
+			.cClass{
+				font-size: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">
+			<p v-if="ok">成功</p>
+			<p v-else="false">失败</p>
+			<p v-show="ok">成功</p>
+			<p v-show="!ok">失败</p>
+			<button @click="ok=!ok">切换</button>
+		</div>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript">
+			const vim=new Vue({
+				el:'#demo',
+				data:{
+					ok:false
+				}
+			})
+		// 	const vim=new Vue({
+		// 		el:'#demo',
+		// 		data:{
+		// 			ok:false
+		// 		}
+		// })
+		</script>
+	</body>
+</html>
