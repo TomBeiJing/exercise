@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>v-html和v-text指令的使用</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{url}}</h2>
+    <h2 v-html="url">111</h2>
+    <h2 v-text="url">11111</h2>
+</div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+    let app = new Vue({
+        el: '#app',
+        data: {
+            url: '<a href="http://www.baidu.com">百度一下</a>'
+        },
+        methods: {
+            add: function () {
+                this.counter++
+            },
+            sub: function () {
+                this.counter--;
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

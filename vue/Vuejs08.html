@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>v-cloak指令</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    {{message}}
+</div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+    // 在vue 解析之前，div中有个一个属性v-cloak
+    // 在Vue解析之后，div中没有一个属性v-cloak
+    setTimeout(function(){
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: "nihao"
+            },
+            methods: {
+                add: function () {
+                    this.counter++
+                },
+                sub: function () {
+                    this.counter--;
+                }
+            }
+        });
+
+    },1000);
+
+
+</script>
+
+</body>
+</html>
