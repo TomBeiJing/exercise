@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--作业要求：点击列表中的哪一项，那么该项的文字变成红色-->
+<div id="app">
+    <ul>
+        <!--<li  v-for="(m,index) in movies">{{index}}-{{m}}</li>-->
+        <li :class=Classes[index]  v-for="(m,index) in movies" @click="changeColor(index)">{{index}}-{{m}}</li>
+    </ul>
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    let app = new Vue({
+        el: '#app',
+        data: {
+            movies: ['aaa','bbb','ccc','dddd'],
+            Classes: ['active',' ',' ',' ']
+//            liClass: 'active'
+        },
+        methods: {
+            add: function () {
+                this.counter++
+            },
+            sub: function () {
+                this.counter--;
+            },
+            changeColor: function (index) {
+                let a = [" "," "," "," "];
+                a[index] = "active";
+                console.log(a,index);
+                this.Classes = a;
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

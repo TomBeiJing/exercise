@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <h2>{{imgURL}}</h2>
+    <h2>{{aHref}}</h2>
+    <img v-bind:src="imgURL">
+    <a :href="aHref">baidu</a>
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    let app = new Vue({
+        el: '#app',
+        data: {
+            imgURL: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570378636419&di=b1a8fd2f0fd403ca2e5b57c99d0d7756&imgtype=0&src=http%3A%2F%2Fshp.qpic.cn%2Fqqvideo_ori%2F0%2Fr0913t8hc49_496_280%2F0',
+            aHref: "http://www.baidu.com"
+        },
+        methods: {
+            add: function () {
+                this.counter++
+            },
+            sub: function () {
+                this.counter--;
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

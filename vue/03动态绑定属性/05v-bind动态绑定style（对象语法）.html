@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!--<h2 :style="{key(属性名)：value（属性值）}">{{messgae}}</h2>-->
+    <h2>{{message}}</h2>
+    <!-- red必须加上单引号否则会被当做变量解析-->
+    <h2 :style="{color: 'red'}">{{message}}</h2>
+    <h2 :style="{color: finalSize}">{{message}}</h2>
+    <h2 :style="{fontSize: finalSize2 +'px'}">{{message}}</h2>
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    let app = new Vue({
+        el: '#app',
+        data: {
+            message: "122313",
+            finalSize: "blue",
+            finalSize2: 100
+        },
+        methods: {
+            add: function () {
+                this.counter++
+            },
+            sub: function () {
+                this.counter--;
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

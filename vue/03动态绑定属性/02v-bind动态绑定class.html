@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>对象语法</title>
+    <style>
+        .active{
+            color: red;
+        }
+        .apple{
+            border: black solid 1px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h2 class="active">{{message}}</h2>
+    <h2 :class="active">{{message}}</h2>
+    <!--<h2 :class="{类名1：布尔值，类名2：布尔值}">{{message}}</h2>-->
+    <!-- 当布尔值为ture时就将类名添加到class中-->
+    <h2 v-bind:class="{active: true,apple: true}">{{message}}</h2>
+    <h2 v-bind:class="{active: isActive,apple: isLine}">{{message}}</h2>
+    <h2 v-bind:class="getClasses()">{{message}}</h2>
+    <button v-on:click="btnClick">按钮</button>
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    let app = new Vue({
+        el: '#app',
+        data: {
+            message: "nihao",
+            active: "active",
+            isActive: "true",
+            isLine: "true"
+        },
+        methods: {
+            add: function () {
+                this.counter++
+            },
+            sub: function () {
+                this.counter--;
+            },
+            btnClick: function () {
+                this.isActive = !this.isActive;
+            },
+            getClasses: function () {
+                return {active: this.isActive,apple: this.isLine}
+            }
+
+        }
+    });
+
+</script>
+
+</body>
+</html>
