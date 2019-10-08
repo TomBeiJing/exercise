@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <!--1.直接拼接：语法过于繁琐，一般不采用-->
+    <h2>{{firstName + ' ' + lastName}}</h2>
+    <h2>{{firstName}} {{lastName}}</h2>
+    <!--2.通过定义methods 调用一次 执行一次 没有缓存 -->
+    <h2>{{getFullName()}}</h2>
+    <!--3.通过computed 对于return的值有缓存，只要值不变就不会从新调用，性能更高，推荐-->
+    <h2>{{fullName}}</h2>
+
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    let app = new Vue({
+        el: '#app',
+        data: {
+            firstName: 'Tom',
+            lastName: 'Jim'
+
+        },
+        //computed: 计算属性（）,使用时不需要加小括号
+        computed: {
+            fullName:{
+                set:function (newValue) {
+                    // fullname 属性在被赋值时，会调用set函数，
+                    // 同时被赋值的新值会被作为newValue传入函数
+                    const names = newValue.splice("");
+                    this.firstName = names[0];
+                    this.lastName = names[1];
+                },
+                //set 这里一般不设置
+                //计算属性一般是没有set方法，只读属性
+                //使用此属性时会自动调用get
+                get:function () {
+                    return this.firstName + ' ' + this.lastName;
+                }
+            }
+            //简便写法
+            //fullName :function (){
+            //  return this.firstName + ' ' + this.lastName;
+            // }
+        },
+        methods: {
+            getFullName() {
+                return this.firstName + ' ' + this.lastName;
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
