@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div id="app">
+  <!--
+  v-if 和v-show的区别
+  v-show:当条件为false时，包含v-if指令的元素，根本就不会存在
+  v-if:当条件为false时，v-show只是给我们的元素添加一个行内样式：display：none
+  -->
+  <h2 v-show="isShow" @click="isShow=!isShow">{{message}}</h2>
+  <h2 v-if="isShow" @click="isShow=!isShow">{{message}}</h2>
+
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  let app = new Vue({
+    el: '#app',
+    data: {
+      message: "122313",
+      isShow:true
+    },
+    methods: {
+      add: function () {
+        this.counter++
+      },
+      sub: function () {
+        this.counter--;
+      }
+    }
+  });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<!--作业要求：点击列表中的哪一项，那么该项的文字变成红色-->
+<div id="app">
+  <div v-if="books.length > 0">
+    <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>书籍名称</th>
+        <th>出版日期</th>
+        <th>价格</th>
+        <th>买狗数量</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr v-for = "(item,index) in books">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.date}}</td>
+      <td>{{item.price | showPrice}}</td>
+      <td>
+        <button @click="add(index)">+</button>
+        {{item.count}}
+        <button @click="sub(index)" :disabled="item.count <= 1">-</button>
+      </td>
+      <td><button @click="removeBtn(index)">删除</button></td>
+    </tr>
+    <!--<td>{{n.id}}</td>-->
+    </tbody>
+  </table>
+  </div>
+  <h2 v-else>购物车为空</h2>
+  <h2>{{totalPrice|showPrice}}</h2>
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  let app = new Vue({
+    el: '#app',
+    data: {
+      message: "122313",
+      names: ['tom','jim','merry','lilei'],
+      books: [
+              {
+                id: 1,
+                name: "算法导论",
+                date:"2006-9",
+                price: 85.00,
+                count: 1
+              },
+              {
+                id: 2,
+                name: "UNIX编程艺术",
+                date:"2006-2",
+                price: 59.00,
+                count: 1
+              },
+              {
+                id: 3,
+                name: "编程珠玑",
+                date:"2006-9",
+                price: 39.00,
+                count: 2
+              }
+      ]
+    },
+    methods: {
+      add: function (index) {
+        this.books[index].count++;
+      },
+      sub: function (index) {
+        this.books[index].count--;
+      },
+      removeBtn(index){
+        this.books.splice(index,1)
+      }
+      // getFinalPrice(price){
+      //   return '￥'+ price.toFixed(2);
+      // }
+    },
+    filters: {
+      //filters 过滤器
+      showPrice(price){
+        return '￥'+ price.toFixed(2);
+      }
+    },
+    computed:{
+      totalPrice(){
+        let totalprice = 0;
+        for(let i = 0;i < this.books.length; i++){
+          totalprice = totalprice + this.books[i].price * this.books[i].count;
+        }
+        console.log(totalprice);
+        return totalprice;
+
+      }
+    }
+  });
+
+</script>
+
+</body>
+</html>
